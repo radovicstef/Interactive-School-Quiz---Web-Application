@@ -1,3 +1,5 @@
+Interactive School Quiz - Web Application
+
 This project includes front-end and back-end development of a quiz game application that supports multiplayer, ranks, a game of the day and three types of users - player, supervisor, admin.
 It is built in JSF (Java ServerFaces) with the data stored in the SQL database, using Hibernate technology.
 The data privacy is provided by using hashing techniques.
