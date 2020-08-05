@@ -15,15 +15,15 @@ Libraries that are used:
 ## Screenshots
 
 <p align = "center">
-<img src="https://github.com/stefanlalov/Interactive-School-Quiz---Web-Application/blob/master/screenshots/2.jpg">
+<img width=50% src="https://github.com/stefanlalov/Interactive-School-Quiz---Web-Application/blob/master/screenshots/2.jpg">
 </p>
 <hr>
 <p align = "center">
-<img src="https://github.com/stefanlalov/Interactive-School-Quiz---Web-Application/blob/master/screenshots/3.jpg">
+<img width=50% src="https://github.com/stefanlalov/Interactive-School-Quiz---Web-Application/blob/master/screenshots/3.jpg">
 </p>
 <hr>
 <p align = "center">
-<img src="https://github.com/stefanlalov/Interactive-School-Quiz---Web-Application/blob/master/screenshots/4.jpg">
+<img width=30% src="https://github.com/stefanlalov/Interactive-School-Quiz---Web-Application/blob/master/screenshots/4.jpg">
 </p>
 <hr>
 <p align = "center">
