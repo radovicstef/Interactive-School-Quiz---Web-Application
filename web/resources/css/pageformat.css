@@ -1,0 +1,74 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Aug 5, 2019, 9:50:32 PM
+    Author     : Legion
+*/
+
+#logo1{
+    width: 160px;
+    position: relative;
+    
+    top: 5px;
+}
+
+#logo2{
+    width: 75px;
+    margin-top: 5px;
+    margin-left: 25px;
+    float: left;
+}
+
+#ime{
+    float:left;
+    margin-top: 30px;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    font-weight: bolder;
+}
+
+#top{
+    width:100%;
+    text-align:center;
+}
+
+#bottom{
+    width:100%;
+    text-align:center;
+}
+
+#content{
+    position: relative;
+    top: 20px;
+}
+
+#nematenalog{
+    font-size: small;
+}
+
+#footertext{
+    font-family: "Helvetica", cursive;
+    font-size: small;
+}
+
+#loginform{
+    background-color: orange;
+    color: white;
+    border-style: solid;
+    border-color: activecaption;
+    border-width: 1px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+#loginlabel{
+    color: black;
+    font-size: 20px;
+    font-weight: bolder;
+}
+
+

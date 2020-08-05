@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <f:metadata>
+        <f:viewAction action="#{supervizor.refresh()}"/>
+    </f:metadata>
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <ui:composition template="./template.xhtml">
+            <ui:define name="title">
+                ETF kviskoteka | Supervizor
+            </ui:define>
+            <ui:define name="footer">
+                <h:form style="float: left; font-size: small; position: relative; padding: 10px;">
+                    <h:commandLink action="/supervizorstranica.xhtml?faces-redirect=true" value="Nazad"/>
+                </h:form>
+            </ui:define>
+            <ui:define name="footer">
+                <h:form style="float: left; font-size: small; position: relative; padding: 10px;">
+                    <h:commandLink action="/supervizorstranica.xhtml?faces-redirect=true" value="Nazad"/>
+                </h:form>
+            </ui:define>
+            
+            <ui:define name="content">
+                <p:outputLabel style="font-weight: bold;" value="Unesite igru anagram u bazu"/>
+                <br></br>
+                <br></br>
+                <h:form id="forma" style="background-color: orange; border: 1px solid whitesmoke; border-radius: 20px;">
+                    <p:outputLabel style="color: white; float: left;" value="Tekst anagrama: "/>
+                    <p:inputText style="float: right; margin-left: 10px;" size="20" value="#{supervizor.tekstangrama}" required="true" requiredMessage="Unesite tekst anagrama!"/>
+                    <br></br>
+                    <br></br>
+                    <p:outputLabel style="color: white; float: left;" value="Resenje anagrama: "/>
+                    <p:inputText style="float: right; margin-left: 10px;" size="20" value="#{supervizor.resenjeanagrama}" required="true" requiredMessage="Unesite resenje anagrama!"/>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <p:commandButton style="background-color: orange; border: 1px solid white;" value="Unesi" action="#{supervizor.unesiAnagram()}" ajax="false" update="forma"/>
+                    <br></br>
+                    <p:messages closable="true"/>
+                </h:form>
+                <br></br>
+                <br></br>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+

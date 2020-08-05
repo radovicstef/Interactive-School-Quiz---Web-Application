@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <f:metadata>
+        <f:viewAction action="#{admin.inicijalizujAnagram()}"/>
+    </f:metadata>
+    <h:head>
+        <title>Facelet Title</title>
+        </h:head>
+    <h:body>
+        <ui:composition template="./template.xhtml">
+            <ui:define name="title">
+                ETF kviskoteka | Admin
+            </ui:define>
+            <ui:define name="footer">
+                <h:form style="float: left; font-size: small; position: relative; padding: 10px;">
+                    <h:commandLink action="/adminigradana.xhtml?faces-redirect=true" value="Nazad"/>
+                </h:form>
+            </ui:define>
+            
+            <ui:define name="content">
+                <p:outputLabel style="font-weight: bold;" value="Anagram"/>
+                <br></br>
+                <br></br>
+                <h:form style="border: 5px solid orange; border-radius: 20px; background-color: seashell;">
+                    <p:outputLabel for="id" style="padding: 15px;" value="Izaberite igru: " />
+                    <p:selectOneMenu id="id" value="#{admin.idulisti}" style="width:150px">
+                        <p:ajax listener="#{admin.promenaAnagram()}" update="tekst resenje" />
+                        <f:selectItems value="#{admin.ideviulisti}" />
+                    </p:selectOneMenu>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <p:panel id="tabela" style="padding: 25px; background-color: orange; border: 1px solid seashell; border-radius: 15px;">
+                        <p:outputLabel style="float: left; font-weight: bold; color: white;" for="tekst" value="Tekst anagrama: "/>
+                        <h:outputText style="font-size: small; margin-left: 5px; color: white" id="tekst" value="#{admin.tekst}"/>
+                        <br></br>
+                        <p:outputLabel style="float: left; font-weight: bold; color: white;" for="resenje" value="Resenje anagrama: "/>
+                        <h:outputText style="font-size: small; margin-left: 5px; color: white" id="resenje" value="#{admin.resenje}"/>
+                    </p:panel>
+                </h:form>
+                <br></br>
+                <br></br>
+                <br></br>
+                <p:outputLabel value="Izaberite datum igre:"/>
+                <br></br>
+                <br></br>
+                <h:form>
+                    <p:panelGrid id='forma'>
+                        <p:calendar id="kalendar" value="#{admin.izabranDatum}"/>
+                        <p:commandButton style="margin-left: 10px; background-color: orange;" value="Potvrdi" action="#{admin.postaviIgru()}"/>
+                    </p:panelGrid>
+                    <br></br>
+                    <br></br>
+                    <p:messages id="messages" showDetail="true" closable="true">
+                        <p:autoUpdate />
+                    </p:messages>
+                </h:form>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+

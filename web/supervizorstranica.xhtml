@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <ui:composition template="./template.xhtml">
+            <ui:define name="title">
+                ETF kviskoteka | Supervizor
+            </ui:define>
+            <ui:define name="footer">
+                <h:form style="float: left; font-size: small; position: relative; padding: 10px;">
+                    <h:commandLink action="#{login.logout()}" value="Log out"/>
+                </h:form>
+            </ui:define>
+            <ui:define name="content">
+                <p:outputLabel style="font-weight: bold;" value="SUPERVIZOR"/>
+                <br></br>
+                <h:form style="background-color: orange; border-radius: 10px; margin-top: 20px; width: 200px;">
+                    <h:commandLink style="margin-top: 150px; color: white;" value="Anagram" action="/anagramsupervizor.xhtml?faces-redirect=true"/>  
+                </h:form>
+                <br></br>
+                <h:form style="background-color: orange; border-radius: 10px; margin-top: 20px; width: 200px;">
+                    <h:commandLink style="margin-top: 150px; color: white;" value="Igra vesanja" action="/vesanjasupervizor.xhtml?faces-redirect=true"/>  
+                </h:form>
+                <br></br>
+                <h:form style="background-color: orange; border-radius: 10px; margin-top: 20px; width: 200px;">
+                    <h:commandLink style="margin-top: 150px; color: white;" value="Zanimljiva geografija" action="/zanimljivageografijasupervizor.xhtml?faces-redirect=true"/>  
+                </h:form>
+                <br></br>
+                <h:form style="background-color: orange; border-radius: 10px; margin-top: 20px; width: 200px;">
+                    <h:commandLink style="margin-top: 150px; color: white;" value="Pehar" action="/peharsupervizor.xhtml?faces-redirect=true"/>  
+                </h:form>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+

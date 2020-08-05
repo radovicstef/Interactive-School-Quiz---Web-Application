@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <ui:composition template="./template.xhtml">
+            <ui:define name="title">
+                ETF kviskoteka | Promena lozinke
+            </ui:define>
+            
+            <ui:define name="content">
+                <h:form>
+                    <p:outputLabel style="font-weight: bold;">Promenite lozinku</p:outputLabel>
+                    <br></br>
+                    <h:panelGrid style="margin-top: 20px; background-color: orange; padding: 10px; border-radius: 10px;" columns="1" cellpadding="5">
+                        <p:inputText id="username" placeholder="Username:" value="#{promenaLozinke.username}" required="true" requiredMessage="Niste uneli username!" maxlength="45" size="20"/>
+                        <p:password id="newpass" placeholder="Nova lozinka:" value="#{promenaLozinke.newPass}" required="true" match="passvalidation" size="20" maxlength="50" validatorMessage="Sifra nije u odgovarajucem formatu!" requiredMessage="Niste uneli novu sifru!">
+                            <f:validateLength minimum="8" maximum="12"/>
+                            <!--KARAKTER & MORA DA BUDE &amp KAKO NE BI DOSLO DO GRESKE U PREVODJENJU JER IMA POSEBNO ZNACENJE PRI PARSIRANJU XHTML, A U SAMOM REGULARNOM IZRAZU TREBA DA STOJI SAMO &--> 
+                            <f:validateRegex pattern="^(?!.*(.)\1{2,})([A-Z](?=(.*[a-z]){3,})|[a-z](?=.*[A-Z])(?=(.*[a-z]){2,}))(?=.*[\d])(?=.*[!@#$%^&amp;*_])[A-Za-z\d!@#$%^&amp;*_]*$"/>
+                        </p:password>
+                        <p:password id="passvalidation" placeholder="Potvrda nove lozinke:" required="true" size="20" maxlength="50" requiredMessage="Niste uneli potvrdu sifre!"/>
+                        <br></br>
+                        <p:messages closable="true" autoUpdate="true"/>
+                        <p:commandButton value="Promenite lozinku" action="#{promenaLozinke.izmeniLozinkuBezStare()}" ajax="false"/>
+                    </h:panelGrid>
+                </h:form>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+

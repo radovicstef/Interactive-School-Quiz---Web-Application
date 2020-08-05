@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <f:metadata>
+        <f:viewAction action="#{anagram.podesiIgruCrveni(login.korisnik.username, 1)}"/>
+    </f:metadata>
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <ui:composition template="./korisniktemplate.xhtml">
+            <ui:define name="title">
+                ETF kviskoteka | Anagram
+            </ui:define>
+            
+            <ui:define name="content">
+                <p:outputLabel style="float: left; font-size: small; font-weight: bold;" value="#{korisnikpartija.igranapart.username1} "></p:outputLabel>
+                <p:outputLabel style="float: left; margin-left:3px; font-size: small; font-weight: bold;" value="VS."></p:outputLabel>
+                <p:outputLabel style="float: left; margin-left:3px; font-size: small; font-weight: bold;" value="#{korisnikpartija.igranapart.username2} "></p:outputLabel>
+                <br></br>
+                <p:outputLabel style="font-weight: bold; float: left;" value="REZULTAT" />
+                <p:outputLabel id="rezultat1" style="color: cornflowerblue; font-weight: bolder; float: left; margin-left: 15px;" value="#{korisnikpartija.uzmipoene1(login.korisnik.username)}"/>
+                <p:outputLabel id="rezultat2" style="color: orangered; font-weight: bolder; float: left; margin-left: 10px;" value="#{korisnikpartija.uzmipoene2(login.korisnik.username)}"/>
+                <br></br>
+                <br></br>
+                <h:form>
+                    <p:outputLabel style="color: #{anagram.color}; font-weight: bold;" value="#{anagram.labela}"/>
+                    <br></br>
+                    <p:outputLabel value="#{anagram.igraanagram.tekst}"/>
+                    <br></br>
+                    <br></br>
+                    <p:outputLabel for="odgovor" value="Vas odgovor: "/>  
+                    <p:inputText id="odgovor" value="#{anagram.odgovor}" disabled="#{anagram.zakljucanodgovor}"/>
+                    <p:commandButton action="#{anagram.odgovoricrveni()}" value="Odgovori" update="odgovor"/>
+                    <br></br>
+                    <p:outputLabel value="Preostalo vreme: "/>
+                    <h:outputText style="font-weight: bold;" id="timer" value="#{anagram.timer}"/>
+                    <p:poll interval="1" listener="#{anagram.odbrojavajCrveni(1)}" update="timer odgovor rezultat1 rezultat2"/>
+                </h:form>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+

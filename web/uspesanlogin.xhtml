@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <f:metadata>
+        <f:viewAction action="#{korisnikpartija.postaviPartije()}"/>
+    </f:metadata>
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h:body>
+         <ui:composition template="./korisniktemplate.xhtml">
+            <ui:define name="title">
+                ETF kviskoteka | Dobrodosli
+            </ui:define>
+             <ui:define name="footer">
+                <h:form style="float: left; font-size: small; position: relative; padding: 10px;">
+                    <h:commandLink action="#{login.logout()}" value="Log out"/>
+                </h:form>
+            </ui:define>
+            <ui:define name="content">
+                <br></br>
+                <p:outputLabel style="font-weight: bold;" value="ETF KVISKOTEKA"/>
+                <p:messages style="font-size: small;" closable="true" autoUpdate="true"/>
+                <br></br>
+                <h:form style="background-color: cornflowerblue; width: 210px; border-radius: 10px; margin-top: 20px;">
+                    <h:commandLink style="margin-top: 150px; color: white;" action="#{korisnikpartija.kreirajpartiju(login.korisnik.username)}" value="Kreirajte novu partiju"/>  
+                </h:form>
+                <br></br>
+                <h:form style="background-color: orangered; width: 210px; border-radius: 10px; margin-top: 20px;">
+                    <h:commandLink style="margin-top: 150px; color: white;" action="#{korisnikpartija.postaviRender()}" value="Izaberite kreiranu partiju"/>
+                </h:form>
+                <br></br>
+                <h:form rendered="#{korisnikpartija.render}">
+                    <p:dataTable id="partije" value="#{korisnikpartija.partije}" var="part" emptyMessage="/">
+                        <p:column headerText="Username">
+                            <h:outputText value="#{part.username1}"/>
+                        </p:column>
+                        <p:column>
+                            <p:commandButton value="Izaberi" action="#{korisnikpartija.izaberi(part.username1, login.korisnik.username)}" ajax="true" update="partije"/>
+                        </p:column>
+                    </p:dataTable>
+                    <br></br>
+                    <p:column>
+                        <p:commandButton value="Refresh" action="#{korisnikpartija.postaviPartije()}" ajax="true" update="partije"/>
+                    </p:column>
+                </h:form>
+                <h:form style="background-color: orange; width: 210px; border-radius: 10px; margin-top: 20px;">
+                    <h:commandLink style="margin-top: 150px; color: white;" value="Pregled rezultata" action="/listarezultata.xhtml?faces-redirect=true"/>  
+                </h:form>
+                <br></br>
+                <h:form style="background-color: orange; width: 210px; border-radius: 10px; margin-top: 20px;">
+                    <h:commandLink style="margin-top: 150px; color: white;" value="Igra dana" action="/igradana.xhtml?faces-redirect=true"/>  
+                </h:form>
+                <br></br>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+    </h:body>
+</html>
+

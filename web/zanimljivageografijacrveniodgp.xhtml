@@ -1,0 +1,83 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <f:metadata>
+        <f:viewAction action="#{zgeos.podesiIgruCrveniOdgPlavi(login.korisnik.username)}"/>
+    </f:metadata>
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <ui:composition template="./korisniktemplate.xhtml">
+            <ui:define name="title">
+                ETF kviskoteka | Zanimljiva geografija
+            </ui:define>
+            
+            <ui:define name="content">
+                <div>
+                    <p:outputLabel style="float: left; font-size: small; font-weight: bold;" value="#{korisnikpartija.igranapart.username1} "></p:outputLabel>
+                    <p:outputLabel style="float: left; margin-left:3px; font-size: small; font-weight: bold;" value="VS."></p:outputLabel>
+                    <p:outputLabel style="float: left; margin-left:3px; font-size: small; font-weight: bold;" value="#{korisnikpartija.igranapart.username2} "></p:outputLabel>
+                    <br></br>
+                    <p:outputLabel style="font-weight: bold; float: left;" value="REZULTAT" />
+                    <p:outputLabel id="rezultat1" style="color: cornflowerblue; font-weight: bolder; float: left; margin-left: 15px;" value="#{korisnikpartija.uzmipoene1(login.korisnik.username)}"/>
+                    <p:outputLabel id="rezultat2" style="color: orangered; font-weight: bolder; float: left; margin-left: 10px;" value="#{korisnikpartija.uzmipoene2(login.korisnik.username)}"/>
+                </div>
+                <div style="width: 100%; position: relative; text-align: center;">
+                   <p:outputLabel style="position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); font-weight: bold; color: #{zgeos.color}; font-weight: bold;" value="ZANIMLJIVA GEOGRAFIJA"/>
+                   <p:graphicImage style="margin-left: 150px; margin-top: -10px; width: 60px;" value="/resources/images/zanimljivageografija.gif"/>
+                   <br></br>
+                   <p:outputLabel value="Preostalo vreme: "/>
+                   <p:outputLabel id="timer" style="font-weight: bold;" value="#{zgeos.timer}"/>
+                   <p:outputLabel id="revizijalabela" style="font-weight: bolder; font-size: small;" rendered="#{zgeos.sacekajreviziju}" value="Sačekajte da supervizor izvrši proveru..."/>
+                </div>
+                <br></br>
+                <h:form style='border: 5px solid whitesmoke; border-radius: 15px; padding: 30px 50px 30px 50px; background-color: lightseagreen;'>
+                    <p:outputLabel id="pocetnoslovo" style="font-weight: bold; font-size: 50px; color: white;" value="#{zgeos.slovo}"/>
+                    <br></br>
+                    <br></br>
+                    <p:outputLabel style="float: left; font-weight: bold; color: white; padding: 5px;" value="Država: "/>
+                    <p:inputText id="drzava" disabled="true" style="float: right;" size="20" value="#{zgeos.drzava}"/>
+                    <br></br>
+                    <br></br>
+                    <p:outputLabel style="float: left; font-weight: bold; color: white; padding: 5px;" value="Grad: "/>
+                    <p:inputText id="grad" disabled="true" style="float: right;" size="20" value="#{zgeos.grad}"/>
+                    <br></br>
+                    <br></br>
+                    <p:outputLabel style="float: left; font-weight: bold; color: white; padding: 5px;" value="Reka: "/>
+                    <p:inputText id="reka" disabled="true" style="float: right;" size="20" value="#{zgeos.reka}"/>
+                    <br></br>
+                    <br></br>
+                    <p:outputLabel style="float: left; font-weight: bold; color: white; padding: 5px;" value="Jezero: "/>
+                    <p:inputText id="jezero" disabled="true" style="float: right;" size="20" value="#{zgeos.jezero}"/>
+                    <br></br>
+                    <br></br>
+                    <p:outputLabel style="float: left; font-weight: bold; color: white; padding: 5px;" value="Planina: "/>
+                    <p:inputText id="planina" disabled="true" style="float: right;" size="20" value="#{zgeos.planina}"/>
+                    <br></br>
+                    <br></br>
+                    <p:outputLabel style="float: left; font-weight: bold; color: white; padding: 5px;" value="Životinja: "/>
+                    <p:inputText id="zivotinja" disabled="true" style="float: right;" size="20" value="#{zgeos.zivotinja}"/>
+                    <br></br>
+                    <br></br>
+                    <p:outputLabel style="float: left; font-weight: bold; color: white; padding: 5px;" value="Biljka: "/>
+                    <p:inputText id="biljka" disabled="true" style="float: right;" size="20" value="#{zgeos.biljka}"/>
+                    <br></br>
+                    <br></br>
+                    <p:outputLabel style="float: left; font-weight: bold; color: white; padding: 5px;" value="Muzička grupa: "/>
+                    <p:inputText id="grupa" disabled="true" style="float: right;" size="20" value="#{zgeos.grupa}"/>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <p:commandButton id="dugme" disabled="true" value="Potvrdi" action="#{zgeos.odgovori(1)}"/>
+                    <p:poll interval="1" listener="#{zgeos.odbrojavajCrveniOdgPlavi()}" update="pocetnoslovo timer drzava grad reka jezero planina zivotinja biljka grupa dugme revizijalabela"/>
+                </h:form>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+

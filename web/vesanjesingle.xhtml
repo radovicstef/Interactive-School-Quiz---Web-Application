@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <f:metadata>
+        <f:viewAction action="#{vesanjesingle.podesiIgru(login.korisnik.username)}"/>
+    </f:metadata>
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <ui:composition template="./korisniktemplate.xhtml">
+            <ui:define name="title">
+                ETF kviskoteka | Igra Dana
+            </ui:define>
+            
+            <ui:define name="content">
+                <br></br>
+                <br></br>
+                <p:outputLabel style="font-weight: bold; color: #{vesanjesingle.color}; font-weight: bold;" value="IGRA VESANJA"/>
+                <br></br>
+                <br></br>
+                <h:form style='border: 5px solid seashell; border-radius: 15px; padding: 30px 50px 30px 50px; background-color: seashell;'>
+                    <p:outputLabel value="Promasaji: "/>
+                    <p:outputLabel id="promasenaslova" value="#{vesanjesingle.promasenaslova}"/> 
+                    <br></br>
+                    <p:graphicImage style="width: 35%" id="slicica" value="#{vesanjesingle.trenutnaslika}"/>
+                    <br></br>
+                    <br></br>
+                    <p:outputLabel id="displayotkrivenarec" value="#{vesanjesingle.displayotkrivenarec}"/>
+                    <br></br>
+                    <br></br>
+                    <p:outputLabel for="odgovor" value="Slovo: "/>  
+                    <p:inputText id="odgovor" value="#{vesanjesingle.odgovor}" size="1"/>
+                    <br></br>
+                    <p:commandButton style="font-size: small;" id="dugme" value="Odgovori" action="#{vesanjesingle.odgovori()}" update="odgovor"/>
+                    <br></br>
+                    <p:poll interval="1" listener="#{vesanjesingle.podesiOtkrivenaRec()}" update="promasenaslova slicica displayotkrivenarec dugme odgovor"/>
+                    <p:poll interval="1" listener="#{vesanjesingle.podesiOtkrivenaRec()}" update="dugme odgovor"/>
+                </h:form>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+

@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <f:metadata>
+        <f:viewAction action='#{admin.refresh()}'/>
+    </f:metadata>
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <ui:composition template="./template.xhtml">
+            <ui:define name="title">
+                ETF kviskoteka | Admin
+            </ui:define>
+            <ui:define name="footer">
+                <h:form style="float: left; font-size: small; position: relative; padding: 10px;">
+                    <h:commandLink action="/adminstranica.xhtml?faces-redirect=true" value="Nazad"/>
+                </h:form>
+            </ui:define>
+            <ui:define name="content">
+                <br></br>
+                <br></br>
+                <p:outputLabel style="font-weight: bolder;" value="Izaberite igru dana"/>
+                <br></br>
+                <h:form>
+                    <p:growl id="msg" autoUpdate="true"/>
+
+                    <h:panelGrid columns="1" style="margin-bottom:10px; background-color: orange; border: 1px solid seashell; border-radius: 10px; padding: 20px;" cellpadding="5">
+                        <p:selectBooleanCheckbox id="anagram" style="float: left; color: white;" value="#{admin.anagram}" itemLabel="Anagram">
+                            <p:ajax update="msg" listener="#{admin.addMessageAnagram()}" />
+                        </p:selectBooleanCheckbox>
+
+                        <p:selectBooleanCheckbox id="mojbroj" style="float: left; color: white;" value="#{admin.mojbroj}" itemLabel="MojBroj">
+                            <p:ajax update="msg" listener="#{admin.addMessageMojBroj()}" />
+                        </p:selectBooleanCheckbox>
+                        
+                        <p:selectBooleanCheckbox id="vesanje" style="float: left; color: white;" value="#{admin.vesanje}" itemLabel="Vesanje">
+                            <p:ajax update="msg" listener="#{admin.addMessageVesanje()}" />
+                        </p:selectBooleanCheckbox>
+                        
+                        <p:selectBooleanCheckbox id="zgeos" style="float: left; color: white;" value="#{admin.zgeos}" itemLabel="Zanimljiva geografija">
+                            <p:ajax update="msg" listener="#{admin.addMessageZgeos()}" />
+                        </p:selectBooleanCheckbox>
+                        
+                        <p:selectBooleanCheckbox id="pehar" style="float: left; color: white;" value="#{admin.pehar}" itemLabel="Pehar">
+                            <p:ajax update="msg" listener="#{admin.addMessagePehar()}" />
+                        </p:selectBooleanCheckbox>
+                    </h:panelGrid>
+                    <br></br>
+                    <p:commandButton id="dugme" style="background-color: orange; border: 1px solid white;" value="Izaberi" action='#{admin.izaberiIgru()}' ajax='false' update='forma'/>
+                </h:form>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+

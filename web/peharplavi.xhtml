@@ -1,0 +1,168 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <f:metadata>
+        <f:viewAction action="#{pehar.podesiIgruPlavi(login.korisnik.username, 1)}" />
+    </f:metadata>
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <ui:composition template="./korisniktemplate.xhtml">
+            <ui:define name="title">
+                ETF kviskoteka | Pehar
+            </ui:define>
+            
+            <ui:define name="content">
+                <p:outputLabel style="float: left; font-size: small; font-weight: bold;" value="#{korisnikpartija.igranapart.username1} "></p:outputLabel>
+                <p:outputLabel style="float: left; margin-left:3px; font-size: small; font-weight: bold;" value="VS."></p:outputLabel>
+                <p:outputLabel style="float: left; margin-left:3px; font-size: small; font-weight: bold;" value="#{korisnikpartija.igranapart.username2} "></p:outputLabel>
+                <br></br>
+                <p:outputLabel style="font-weight: bold; float: left;" value="REZULTAT" />
+                <p:outputLabel id="rezultat1" style="color: cornflowerblue; font-weight: bolder; float: left; margin-left: 15px;" value="#{korisnikpartija.uzmipoene1(login.korisnik.username)}"/>
+                <p:outputLabel id="rezultat2" style="color: orangered; font-weight: bolder; float: left; margin-left: 10px;" value="#{korisnikpartija.uzmipoene2(login.korisnik.username)}"/>
+                <br></br>
+                <br></br>
+                <p:outputLabel id="labela" style="color: #{pehar.color}; font-weight: bold;" value="PEHAR"/>
+                <br></br>
+                <h:form style='border: 5px solid seashell; border-radius: 15px; padding: 30px 50px 30px 50px; background-color: seashell;'>
+                    <p:outputLabel id="r1s1" style="font-size: small; background-color: #{pehar.bojapitanja[0]}; border: 1px solid whitesmoke; border-radius: 5px; color:white; font-weight: bolder; padding-top: 15px; padding: 15px;" value="#{pehar.r1s1}"/>
+                    <p:outputLabel id="r1s2" style="font-size: small; background-color: #{pehar.bojapitanja[0]}; border: 1px solid whitesmoke; margin-left: 0px; border-radius: 5px; color:white; font-weight: bolder; padding-top: 15px; padding: 15px;" value="#{pehar.r1s2}"/>
+                    <p:outputLabel id="r1s3" style="font-size: small; background-color: #{pehar.bojapitanja[0]}; border: 1px solid whitesmoke; margin-left: 0px; border-radius: 5px; color:white; font-weight: bolder; padding-top: 15px; padding: 15px;" value="#{pehar.r1s3}"/>
+                    <p:outputLabel id="r1s4" style="font-size: small; background-color: #{pehar.bojapitanja[0]}; border: 1px solid whitesmoke; margin-left: 0px; border-radius: 5px; color:white; font-weight: bolder; padding-top: 15px; padding: 15px;" value="#{pehar.r1s4}"/>
+                    <p:outputLabel id="r1s5" style="font-size: small; background-color: #{pehar.bojapitanja[0]}; border: 1px solid whitesmoke; margin-left: 0px; border-radius: 5px; color:white; font-weight: bolder; padding-top: 15px; padding: 15px;" value="#{pehar.r1s5}"/>
+                    <p:outputLabel id="r1s6" style="font-size: small; background-color: #{pehar.bojapitanja[0]}; border: 1px solid whitesmoke; margin-left: 0px; border-radius: 5px; color:white; font-weight: bolder; padding-top: 15px; padding: 15px;" value="#{pehar.r1s6}"/>
+                    <p:outputLabel id="r1s7" style="font-size: small; background-color: #{pehar.bojapitanja[0]}; border: 1px solid whitesmoke; margin-left: 0px; border-radius: 5px; color:white; font-weight: bolder; padding-top: 15px; padding: 15px;" value="#{pehar.r1s7}"/>
+                    <p:outputLabel id="r1s8" style="font-size: small; background-color: #{pehar.bojapitanja[0]}; border: 1px solid whitesmoke; margin-left: 0px; border-radius: 5px; color:white; font-weight: bolder; padding-top: 15px; padding: 15px;" value="#{pehar.r1s8}"/>
+                    <p:outputLabel id="r1s9" style="font-size: small; background-color: #{pehar.bojapitanja[0]}; border: 1px solid whitesmoke; margin-left: 0px; border-radius: 5px; color:white; font-weight: bolder; padding-top: 15px; padding: 15px;" value="#{pehar.r1s9}"/>
+                    <br></br>
+                    <br></br>
+                    <p:outputLabel id="r2s1" style="font-size: small; background-color: #{pehar.bojapitanja[1]}; border: 1px solid whitesmoke; margin-left: 0px; border-radius: 5px; color:white; font-weight: bolder; padding-top: 15px; padding: 15px;" value="#{pehar.r2s1}"/>
+                    <p:outputLabel id="r2s2" style="font-size: small; background-color: #{pehar.bojapitanja[1]}; border: 1px solid whitesmoke; margin-left: 0px; border-radius: 5px; color:white; font-weight: bolder; padding-top: 15px; padding: 15px;" value="#{pehar.r2s2}"/>
+                    <p:outputLabel id="r2s3" style="font-size: small; background-color: #{pehar.bojapitanja[1]}; border: 1px solid whitesmoke; margin-left: 0px; border-radius: 5px; color:white; font-weight: bolder; padding-top: 15px; padding: 15px;" value="#{pehar.r2s3}"/>
+                    <p:outputLabel id="r2s4" style="font-size: small; background-color: #{pehar.bojapitanja[1]}; border: 1px solid whitesmoke; margin-left: 0px; border-radius: 5px; color:white; font-weight: bolder; padding-top: 15px; padding: 15px;" value="#{pehar.r2s4}"/>
+                    <p:outputLabel id="r2s5" style="font-size: small; background-color: #{pehar.bojapitanja[1]}; border: 1px solid whitesmoke; margin-left: 0px; border-radius: 5px; color:white; font-weight: bolder; padding-top: 15px; padding: 15px;" value="#{pehar.r2s5}"/>
+                    <p:outputLabel id="r2s6" style="font-size: small; background-color: #{pehar.bojapitanja[1]}; border: 1px solid whitesmoke; margin-left: 0px; border-radius: 5px; color:white; font-weight: bolder; padding-top: 15px; padding: 15px;" value="#{pehar.r2s6}"/>
+                    <p:outputLabel id="r2s7" style="font-size: small; background-color: #{pehar.bojapitanja[1]}; border: 1px solid whitesmoke; margin-left: 0px; border-radius: 5px; color:white; font-weight: bolder; padding-top: 15px; padding: 15px;" value="#{pehar.r2s7}"/>
+                    <p:outputLabel id="r2s8" style="font-size: small; background-color: #{pehar.bojapitanja[1]}; border: 1px solid whitesmoke; margin-left: 0px; border-radius: 5px; color:white; font-weight: bolder; padding-top: 15px; padding: 15px;" value="#{pehar.r2s8}"/>
+                    <br></br>
+                    <br></br>
+                    <p:outputLabel id="r3s1" style="font-size: small; background-color: #{pehar.bojapitanja[2]}; border: 1px solid whitesmoke; margin-left: 0px; border-radius: 5px; color:white; font-weight: bolder; padding-top: 15px; padding: 15px;" value="#{pehar.r3s1}"/>
+                    <p:outputLabel id="r3s2" style="font-size: small; background-color: #{pehar.bojapitanja[2]}; border: 1px solid whitesmoke; margin-left: 0px; border-radius: 5px; color:white; font-weight: bolder; padding-top: 15px; padding: 15px;" value="#{pehar.r3s2}"/>
+                    <p:outputLabel id="r3s3" style="font-size: small; background-color: #{pehar.bojapitanja[2]}; border: 1px solid whitesmoke; margin-left: 0px; border-radius: 5px; color:white; font-weight: bolder; padding-top: 15px; padding: 15px;" value="#{pehar.r3s3}"/>
+                    <p:outputLabel id="r3s4" style="font-size: small; background-color: #{pehar.bojapitanja[2]}; border: 1px solid whitesmoke; margin-left: 0px; border-radius: 5px; color:white; font-weight: bolder; padding-top: 15px; padding: 15px;" value="#{pehar.r3s4}"/>
+                    <p:outputLabel id="r3s5" style="font-size: small; background-color: #{pehar.bojapitanja[2]}; border: 1px solid whitesmoke; margin-left: 0px; border-radius: 5px; color:white; font-weight: bolder; padding-top: 15px; padding: 15px;" value="#{pehar.r3s5}"/>
+                    <p:outputLabel id="r3s6" style="font-size: small; background-color: #{pehar.bojapitanja[2]}; border: 1px solid whitesmoke; margin-left: 0px; border-radius: 5px; color:white; font-weight: bolder; padding-top: 15px; padding: 15px;" value="#{pehar.r3s6}"/>
+                    <p:outputLabel id="r3s7" style="font-size: small; background-color: #{pehar.bojapitanja[2]}; border: 1px solid whitesmoke; margin-left: 0px; border-radius: 5px; color:white; font-weight: bolder; padding-top: 15px; padding: 15px;" value="#{pehar.r3s7}"/>
+                    <br></br>
+                    <br></br>
+                    <p:outputLabel id="r4s1" style="font-size: small; background-color: #{pehar.bojapitanja[3]}; border: 1px solid whitesmoke; margin-left: 0px; border-radius: 5px; color:white; font-weight: bolder; padding-top: 15px; padding: 15px;" value="#{pehar.r4s1}"/>
+                    <p:outputLabel id="r4s2" style="font-size: small; background-color: #{pehar.bojapitanja[3]}; border: 1px solid whitesmoke; margin-left: 0px; border-radius: 5px; color:white; font-weight: bolder; padding-top: 15px; padding: 15px;" value="#{pehar.r4s2}"/>
+                    <p:outputLabel id="r4s3" style="font-size: small; background-color: #{pehar.bojapitanja[3]}; border: 1px solid whitesmoke; margin-left: 0px; border-radius: 5px; color:white; font-weight: bolder; padding-top: 15px; padding: 15px;" value="#{pehar.r4s3}"/>
+                    <p:outputLabel id="r4s4" style="font-size: small; background-color: #{pehar.bojapitanja[3]}; border: 1px solid whitesmoke; margin-left: 0px; border-radius: 5px; color:white; font-weight: bolder; padding-top: 15px; padding: 15px;" value="#{pehar.r4s4}"/>
+                    <p:outputLabel id="r4s5" style="font-size: small; background-color: #{pehar.bojapitanja[3]}; border: 1px solid whitesmoke; margin-left: 0px; border-radius: 5px; color:white; font-weight: bolder; padding-top: 15px; padding: 15px;" value="#{pehar.r4s5}"/>
+                    <p:outputLabel id="r4s6" style="font-size: small; background-color: #{pehar.bojapitanja[3]}; border: 1px solid whitesmoke; margin-left: 0px; border-radius: 5px; color:white; font-weight: bolder; padding-top: 15px; padding: 15px;" value="#{pehar.r4s6}"/>
+                    <br></br>
+                    <br></br>
+                    <p:outputLabel id="r5s1" style="font-size: small; background-color: #{pehar.bojapitanja[4]}; border: 1px solid whitesmoke; margin-left: 0px; border-radius: 5px; color:white; font-weight: bolder; padding-top: 15px; padding: 15px;" value="#{pehar.r5s1}"/>
+                    <p:outputLabel id="r5s2" style="font-size: small; background-color: #{pehar.bojapitanja[4]}; border: 1px solid whitesmoke; margin-left: 0px; border-radius: 5px; color:white; font-weight: bolder; padding-top: 15px; padding: 15px;" value="#{pehar.r5s2}"/>
+                    <p:outputLabel id="r5s3" style="font-size: small; background-color: #{pehar.bojapitanja[4]}; border: 1px solid whitesmoke; margin-left: 0px; border-radius: 5px; color:white; font-weight: bolder; padding-top: 15px; padding: 15px;" value="#{pehar.r5s3}"/>
+                    <p:outputLabel id="r5s4" style="font-size: small; background-color: #{pehar.bojapitanja[4]}; border: 1px solid whitesmoke; margin-left: 0px; border-radius: 5px; color:white; font-weight: bolder; padding-top: 15px; padding: 15px;" value="#{pehar.r5s4}"/>
+                    <p:outputLabel id="r5s5" style="font-size: small; background-color: #{pehar.bojapitanja[4]}; border: 1px solid whitesmoke; margin-left: 0px; border-radius: 5px; color:white; font-weight: bolder; padding-top: 15px; padding: 15px;" value="#{pehar.r5s5}"/>
+                    <br></br>
+                    <br></br>
+                    <p:outputLabel id="r6s1" style="font-size: small; background-color: #{pehar.bojapitanja[5]}; border: 1px solid whitesmoke; margin-left: 0px; border-radius: 5px; color:white; font-weight: bolder; padding-top: 15px; padding: 15px;" value="#{pehar.r6s1}"/>
+                    <p:outputLabel id="r6s2" style="font-size: small; background-color: #{pehar.bojapitanja[5]}; border: 1px solid whitesmoke; margin-left: 0px; border-radius: 5px; color:white; font-weight: bolder; padding-top: 15px; padding: 15px;" value="#{pehar.r6s2}"/>
+                    <p:outputLabel id="r6s3" style="font-size: small; background-color: #{pehar.bojapitanja[5]}; border: 1px solid whitesmoke; margin-left: 0px; border-radius: 5px; color:white; font-weight: bolder; padding-top: 15px; padding: 15px;" value="#{pehar.r6s3}"/>
+                    <p:outputLabel id="r6s4" style="font-size: small; background-color: #{pehar.bojapitanja[5]}; border: 1px solid whitesmoke; margin-left: 0px; border-radius: 5px; color:white; font-weight: bolder; padding-top: 15px; padding: 15px;" value="#{pehar.r6s4}"/>
+                    <br></br>
+                    <br></br>
+                    <p:outputLabel id="r7s1" style="font-size: small; background-color: #{pehar.bojapitanja[6]}; border: 1px solid whitesmoke; margin-left: 0px; border-radius: 5px; color:white; font-weight: bolder; padding-top: 15px; padding: 15px;" value="#{pehar.r7s1}"/>
+                    <p:outputLabel id="r7s2" style="font-size: small; background-color: #{pehar.bojapitanja[6]}; border: 1px solid whitesmoke; margin-left: 0px; border-radius: 5px; color:white; font-weight: bolder; padding-top: 15px; padding: 15px;" value="#{pehar.r7s2}"/>
+                    <p:outputLabel id="r7s3" style="font-size: small; background-color: #{pehar.bojapitanja[6]}; border: 1px solid whitesmoke; margin-left: 0px; border-radius: 5px; color:white; font-weight: bolder; padding-top: 15px; padding: 15px;" value="#{pehar.r7s3}"/>
+                    <br></br>
+                    <br></br>
+                    <p:outputLabel id="r8s1" style="font-size: small; background-color: #{pehar.bojapitanja[7]}; border: 1px solid whitesmoke; margin-left: 0px; border-radius: 5px; color:white; font-weight: bolder; padding-top: 15px; padding: 15px;" value="#{pehar.r8s1}"/>
+                    <p:outputLabel id="r8s2" style="font-size: small; background-color: #{pehar.bojapitanja[7]}; border: 1px solid whitesmoke; margin-left: 0px; border-radius: 5px; color:white; font-weight: bolder; padding-top: 15px; padding: 15px;" value="#{pehar.r8s2}"/>
+                    <p:outputLabel id="r8s3" style="font-size: small; background-color: #{pehar.bojapitanja[7]}; border: 1px solid whitesmoke; margin-left: 0px; border-radius: 5px; color:white; font-weight: bolder; padding-top: 15px; padding: 15px;" value="#{pehar.r8s3}"/>
+                    <br></br>
+                    <br></br>
+                    <p:outputLabel id="r9s1" style="font-size: small; background-color: #{pehar.bojapitanja[8]}; border: 1px solid whitesmoke; margin-left: 0px; border-radius: 5px; color:white; font-weight: bolder; padding-top: 15px; padding: 15px;" value="#{pehar.r9s1}"/>
+                    <p:outputLabel id="r9s2" style="font-size: small; background-color: #{pehar.bojapitanja[8]}; border: 1px solid whitesmoke; margin-left: 0px; border-radius: 5px; color:white; font-weight: bolder; padding-top: 15px; padding: 15px;" value="#{pehar.r9s2}"/>
+                    <p:outputLabel id="r9s3" style="font-size: small; background-color: #{pehar.bojapitanja[8]}; border: 1px solid whitesmoke; margin-left: 0px; border-radius: 5px; color:white; font-weight: bolder; padding-top: 15px; padding: 15px;" value="#{pehar.r9s3}"/>
+                    <p:outputLabel id="r9s4" style="font-size: small; background-color: #{pehar.bojapitanja[8]}; border: 1px solid whitesmoke; margin-left: 0px; border-radius: 5px; color:white; font-weight: bolder; padding-top: 15px; padding: 15px;" value="#{pehar.r9s4}"/>
+                    <br></br>
+                    <br></br>
+                    <p:outputLabel id="r10s1" style="font-size: small; background-color: #{pehar.bojapitanja[9]}; border: 1px solid whitesmoke; margin-left: 0px; border-radius: 5px; color:white; font-weight: bolder; padding-top: 15px; padding: 15px;" value="#{pehar.r10s1}"/>
+                    <p:outputLabel id="r10s2" style="font-size: small; background-color: #{pehar.bojapitanja[9]}; border: 1px solid whitesmoke; margin-left: 0px; border-radius: 5px; color:white; font-weight: bolder; padding-top: 15px; padding: 15px;" value="#{pehar.r10s2}"/>
+                    <p:outputLabel id="r10s3" style="font-size: small; background-color: #{pehar.bojapitanja[9]}; border: 1px solid whitesmoke; margin-left: 0px; border-radius: 5px; color:white; font-weight: bolder; padding-top: 15px; padding: 15px;" value="#{pehar.r10s3}"/>
+                    <p:outputLabel id="r10s4" style="font-size: small; background-color: #{pehar.bojapitanja[9]}; border: 1px solid whitesmoke; margin-left: 0px; border-radius: 5px; color:white; font-weight: bolder; padding-top: 15px; padding: 15px;" value="#{pehar.r10s4}"/>
+                    <p:outputLabel id="r10s5" style="font-size: small; background-color: #{pehar.bojapitanja[9]}; border: 1px solid whitesmoke; margin-left: 0px; border-radius: 5px; color:white; font-weight: bolder; padding-top: 15px; padding: 15px;" value="#{pehar.r10s5}"/>
+                    <br></br>
+                    <br></br>
+                    <p:outputLabel id="r11s1" style="font-size: small; background-color: #{pehar.bojapitanja[10]}; border: 1px solid whitesmoke; margin-left: 0px; border-radius: 5px; color:white; font-weight: bolder; padding-top: 15px; padding: 15px;" value="#{pehar.r11s1}"/>
+                    <p:outputLabel id="r11s2" style="font-size: small; background-color: #{pehar.bojapitanja[10]}; border: 1px solid whitesmoke; margin-left: 0px; border-radius: 5px; color:white; font-weight: bolder; padding-top: 15px; padding: 15px;" value="#{pehar.r11s2}"/>
+                    <p:outputLabel id="r11s3" style="font-size: small; background-color: #{pehar.bojapitanja[10]}; border: 1px solid whitesmoke; margin-left: 0px; border-radius: 5px; color:white; font-weight: bolder; padding-top: 15px; padding: 15px;" value="#{pehar.r11s3}"/>
+                    <p:outputLabel id="r11s4" style="font-size: small; background-color: #{pehar.bojapitanja[10]}; border: 1px solid whitesmoke; margin-left: 0px; border-radius: 5px; color:white; font-weight: bolder; padding-top: 15px; padding: 15px;" value="#{pehar.r11s4}"/>
+                    <p:outputLabel id="r11s5" style="font-size: small; background-color: #{pehar.bojapitanja[10]}; border: 1px solid whitesmoke; margin-left: 0px; border-radius: 5px; color:white; font-weight: bolder; padding-top: 15px; padding: 15px;" value="#{pehar.r11s5}"/>
+                    <p:outputLabel id="r11s6" style="font-size: small; background-color: #{pehar.bojapitanja[10]}; border: 1px solid whitesmoke; margin-left: 0px; border-radius: 5px; color:white; font-weight: bolder; padding-top: 15px; padding: 15px;" value="#{pehar.r11s6}"/>
+                    <br></br>
+                    <br></br>
+                    <p:outputLabel id="r12s1" style="font-size: small; background-color: #{pehar.bojapitanja[11]}; border: 1px solid whitesmoke; margin-left: 0px; border-radius: 5px; color:white; font-weight: bolder; padding-top: 15px; padding: 15px;" value="#{pehar.r12s1}"/>
+                    <p:outputLabel id="r12s2" style="font-size: small; background-color: #{pehar.bojapitanja[11]}; border: 1px solid whitesmoke; margin-left: 0px; border-radius: 5px; color:white; font-weight: bolder; padding-top: 15px; padding: 15px;" value="#{pehar.r12s2}"/>
+                    <p:outputLabel id="r12s3" style="font-size: small; background-color: #{pehar.bojapitanja[11]}; border: 1px solid whitesmoke; margin-left: 0px; border-radius: 5px; color:white; font-weight: bolder; padding-top: 15px; padding: 15px;" value="#{pehar.r12s3}"/>
+                    <p:outputLabel id="r12s4" style="font-size: small; background-color: #{pehar.bojapitanja[11]}; border: 1px solid whitesmoke; margin-left: 0px; border-radius: 5px; color:white; font-weight: bolder; padding-top: 15px; padding: 15px;" value="#{pehar.r12s4}"/>
+                    <p:outputLabel id="r12s5" style="font-size: small; background-color: #{pehar.bojapitanja[11]}; border: 1px solid whitesmoke; margin-left: 0px; border-radius: 5px; color:white; font-weight: bolder; padding-top: 15px; padding: 15px;" value="#{pehar.r12s5}"/>
+                    <p:outputLabel id="r12s6" style="font-size: small; background-color: #{pehar.bojapitanja[11]}; border: 1px solid whitesmoke; margin-left: 0px; border-radius: 5px; color:white; font-weight: bolder; padding-top: 15px; padding: 15px;" value="#{pehar.r12s6}"/>
+                    <p:outputLabel id="r12s7" style="font-size: small; background-color: #{pehar.bojapitanja[11]}; border: 1px solid whitesmoke; margin-left: 0px; border-radius: 5px; color:white; font-weight: bolder; padding-top: 15px; padding: 15px;" value="#{pehar.r12s7}"/>
+                    <br></br>
+                    <br></br>
+                    <p:outputLabel id="r13s1" style="font-size: small; background-color: #{pehar.bojapitanja[12]}; border: 1px solid whitesmoke; margin-left: 0px; border-radius: 5px; color:white; font-weight: bolder; padding-top: 15px; padding: 15px;" value="#{pehar.r13s1}"/>
+                    <p:outputLabel id="r13s2" style="font-size: small; background-color: #{pehar.bojapitanja[12]}; border: 1px solid whitesmoke; margin-left: 0px; border-radius: 5px; color:white; font-weight: bolder; padding-top: 15px; padding: 15px;" value="#{pehar.r13s2}"/>
+                    <p:outputLabel id="r13s3" style="font-size: small; background-color: #{pehar.bojapitanja[12]}; border: 1px solid whitesmoke; margin-left: 0px; border-radius: 5px; color:white; font-weight: bolder; padding-top: 15px; padding: 15px;" value="#{pehar.r13s3}"/>
+                    <p:outputLabel id="r13s4" style="font-size: small; background-color: #{pehar.bojapitanja[12]}; border: 1px solid whitesmoke; margin-left: 0px; border-radius: 5px; color:white; font-weight: bolder; padding-top: 15px; padding: 15px;" value="#{pehar.r13s4}"/>
+                    <p:outputLabel id="r13s5" style="font-size: small; background-color: #{pehar.bojapitanja[12]}; border: 1px solid whitesmoke; margin-left: 0px; border-radius: 5px; color:white; font-weight: bolder; padding-top: 15px; padding: 15px;" value="#{pehar.r13s5}"/>
+                    <p:outputLabel id="r13s6" style="font-size: small; background-color: #{pehar.bojapitanja[12]}; border: 1px solid whitesmoke; margin-left: 0px; border-radius: 5px; color:white; font-weight: bolder; padding-top: 15px; padding: 15px;" value="#{pehar.r13s6}"/>
+                    <p:outputLabel id="r13s7" style="font-size: small; background-color: #{pehar.bojapitanja[12]}; border: 1px solid whitesmoke; margin-left: 0px; border-radius: 5px; color:white; font-weight: bolder; padding-top: 15px; padding: 15px;" value="#{pehar.r13s7}"/>
+                    <p:outputLabel id="r13s8" style="font-size: small; background-color: #{pehar.bojapitanja[12]}; border: 1px solid whitesmoke; margin-left: 0px; border-radius: 5px; color:white; font-weight: bolder; padding-top: 15px; padding: 15px;" value="#{pehar.r13s8}"/>
+                    <br></br>
+                    <br></br>
+                    <p:outputLabel id="r14s1" style="font-size: small; background-color: #{pehar.bojapitanja[13]}; border: 1px solid whitesmoke; border-radius: 5px; color:white; font-weight: bolder; padding-top: 15px; padding: 15px;" value="#{pehar.r14s1}"/>
+                    <p:outputLabel id="r14s2" style="font-size: small; background-color: #{pehar.bojapitanja[13]}; border: 1px solid whitesmoke; margin-left: 0px; border-radius: 5px; color:white; font-weight: bolder; padding-top: 15px; padding: 15px;" value="#{pehar.r14s2}"/>
+                    <p:outputLabel id="r14s3" style="font-size: small; background-color: #{pehar.bojapitanja[13]}; border: 1px solid whitesmoke; margin-left: 0px; border-radius: 5px; color:white; font-weight: bolder; padding-top: 15px; padding: 15px;" value="#{pehar.r14s3}"/>
+                    <p:outputLabel id="r14s4" style="font-size: small; background-color: #{pehar.bojapitanja[13]}; border: 1px solid whitesmoke; margin-left: 0px; border-radius: 5px; color:white; font-weight: bolder; padding-top: 15px; padding: 15px;" value="#{pehar.r14s4}"/>
+                    <p:outputLabel id="r14s5" style="font-size: small; background-color: #{pehar.bojapitanja[13]}; border: 1px solid whitesmoke; margin-left: 0px; border-radius: 5px; color:white; font-weight: bolder; padding-top: 15px; padding: 15px;" value="#{pehar.r14s5}"/>
+                    <p:outputLabel id="r14s6" style="font-size: small; background-color: #{pehar.bojapitanja[13]}; border: 1px solid whitesmoke; margin-left: 0px; border-radius: 5px; color:white; font-weight: bolder; padding-top: 15px; padding: 15px;" value="#{pehar.r14s6}"/>
+                    <p:outputLabel id="r14s7" style="font-size: small; background-color: #{pehar.bojapitanja[13]}; border: 1px solid whitesmoke; margin-left: 0px; border-radius: 5px; color:white; font-weight: bolder; padding-top: 15px; padding: 15px;" value="#{pehar.r14s7}"/>
+                    <p:outputLabel id="r14s8" style="font-size: small; background-color: #{pehar.bojapitanja[13]}; border: 1px solid whitesmoke; margin-left: 0px; border-radius: 5px; color:white; font-weight: bolder; padding-top: 15px; padding: 15px;" value="#{pehar.r14s8}"/>
+                    <p:outputLabel id="r14s9" style="font-size: small; background-color: #{pehar.bojapitanja[13]}; border: 1px solid whitesmoke; margin-left: 0px; border-radius: 5px; color:white; font-weight: bolder; padding-top: 15px; padding: 15px;" value="#{pehar.r14s9}"/>
+                    <p:poll interval="1" listener="#{pehar.odbrojavajPlavi(1)}" update="labela r1s1 r1s2 r1s3 r1s4 r1s5 r1s6 r1s7 r1s8 r1s9 r2s1 r2s2 r2s3 r2s4 r2s5 r2s6 r2s7 r2s8
+                            r3s1 r3s2 r3s3 r3s4 r3s5 r3s6 r3s7 r4s1 r4s2 r4s3 r4s4 r4s5 r4s6 r5s1 r5s2 r5s3 r5s4 r5s5 r6s1 r6s2 r6s3 r6s4 r7s1 r7s2 r7s3 r8s1 r8s2 r8s3 r9s1 r9s2 r9s3 r9s4
+                            r10s1 r10s2 r10s3 r10s4 r10s5 r11s1 r11s2 r11s3 r11s4 r11s5 r11s6 r12s1 r12s2 r12s3 r12s4 r12s5 r12s6 r12s7 r13s1 r13s2 r13s3 r13s4 r13s5 r13s6 r13s7 r13s8
+                            r14s1 r14s2 r14s3 r14s4 r14s5 r14s6 r14s7 r14s8 r14s9"/>
+                </h:form>
+                <br></br>
+                <br></br>
+                <h:form>
+                    <p:outputLabel style="font-weight: bold;" value="#{pehar.pitanje}" id="pitanje"/>
+                    <br></br>
+                    <br></br>
+                    <p:outputLabel value="Preostalo vreme: "/>
+                    <h:outputText id="timer" style="font-weight: bold;" value="#{pehar.timer}"/>
+                    <br></br>
+                    <p:outputLabel for="odgovor" value="Odgovor: "/>
+                    <p:inputText id="odgovor" value="#{pehar.odgovor}"/>
+                    <br></br>
+                    <br></br>
+                    <p:commandButton id="dugme" disabled="#{pehar.disabledbutton}" action="#{pehar.odgovori(1)}" style="background-color: orange; border: 1px solid white;" value="Potvrdi"/>
+                    <p:poll interval="1" update="dugme pitanje timer rezultat1 rezultat2"/>
+                </h:form>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+

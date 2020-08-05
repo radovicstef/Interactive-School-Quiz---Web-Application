@@ -1,0 +1,70 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <f:metadata>
+        <f:viewAction action="#{mojbrojsingle.podesiIgru(login.korisnik.username)}"/>
+    </f:metadata>
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <ui:composition template="./korisniktemplate.xhtml">
+            <ui:define name="title">
+                ETF kviskoteka | Igra Dana
+            </ui:define>
+            
+            <ui:define name="content">
+                <br></br>
+                <br></br>
+                <p:outputLabel style="font-weight: bold; color: #{mojbrojsingle.color}" value="MOJ BROJ"/>
+                <br></br>
+                <p:outputLabel value="Preostalo vreme: "/>
+                <h:outputText style="font-weight: bold;" id="timer" value="#{mojbrojsingle.timer}"/>
+                <br></br>
+                <h:form style='border: 5px solid seashell; border-radius: 15px; padding: 30px 50px 30px 50px; background-color: seashell;'>
+                    <p:poll interval="1" listener="#{mojbrojsingle.odbrojavaj()}" update="timer odgovor"/>
+                    <p:outputLabel id="gb" style="background-color: orange; border-radius: 10px; color:white; font-weight: bolder; padding-top: 15px; padding: 15px;" value="#{mojbrojsingle.gb}"/>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <h:commandLink disabled="#{mojbrojsingle.disabledj1}" id="j1" style="background-color: orange; border-radius: 10px; color:white; padding: 10px; margin-right: 3px;" value="#{mojbrojsingle.j1}" action="#{mojbrojsingle.odgovori(1)}"/>
+                    <h:commandLink disabled="#{mojbrojsingle.disabledj2}" id="j2" style="background-color: orange; border-radius: 10px; color:white; padding: 10px; margin-right: 3px;" value="#{mojbrojsingle.j2}" action="#{mojbrojsingle.odgovori(2)}"/>
+                    <h:commandLink disabled="#{mojbrojsingle.disabledj3}" id="j3" style="background-color: orange; border-radius: 10px; color:white; padding: 10px; margin-right: 3px;" value="#{mojbrojsingle.j3}" action="#{mojbrojsingle.odgovori(3)}"/>
+                    <h:commandLink disabled="#{mojbrojsingle.disabledj4}" id="j4" style="background-color: orange; border-radius: 10px; color:white; padding: 10px; margin-right: 35px;" value="#{mojbrojsingle.j4}" action="#{mojbrojsingle.odgovori(4)}"/>
+                    <h:commandLink disabled="#{mojbrojsingle.disabledd1}" id="d1" style="background-color: orange; border-radius: 10px; color:white; padding: 10px; margin-right: 35px;" value="#{mojbrojsingle.d1}" action="#{mojbrojsingle.odgovori(5)}"/>
+                    <h:commandLink disabled="#{mojbrojsingle.disabledd2}" id="d2" style="background-color: orange; border-radius: 10px; color:white; padding: 10px;" value="#{mojbrojsingle.d2}" action="#{mojbrojsingle.odgovori(6)}"/>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    
+                    <h:commandLink style="background-color: orange; color:white; padding: 10px; margin-right: 3px;" value="+" action="#{mojbrojsingle.odgovori(7)}"/>
+                    <h:commandLink style="background-color: orange; color:white; padding: 10px; margin-right: 3px;" value="-" action="#{mojbrojsingle.odgovori(8)}"/>
+                    <h:commandLink style="background-color: orange; color:white; padding: 10px; margin-right: 3px;" value="*" action="#{mojbrojsingle.odgovori(9)}"/>
+                    <h:commandLink style="background-color: orange; color:white; padding: 10px; margin-right: 3px;" value="/" action="#{mojbrojsingle.odgovori(10)}"/>
+                    <h:commandLink style="background-color: orange; color:white; padding: 10px; margin-right: 3px;" value="(" action="#{mojbrojsingle.odgovori(11)}"/>
+                    <h:commandLink style="background-color: orange; color:white; padding: 10px; margin-right: 3px;" value=")" action="#{mojbrojsingle.odgovori(12)}"/>
+                    <br></br>
+                    <br></br>
+                    <p:commandButton disabled="#{mojbrojsingle.disabledStop}" style="font-size: small;" action="#{mojbrojsingle.stop()}" value="STOP"/>
+                    <br></br>
+                    <br></br>
+                    <p:inputText id="odgovor" disabled="true" value="#{mojbrojsingle.odgovor}"/>
+                    <p:commandButton value="Nazad" action="#{mojbrojsingle.nazad()}"/>
+                    <p:poll interval="1" listener="#{mojbrojsingle.vrtibrojeve()}" update="j1 j2 j3 j4 d1 d2 gb odgovor neispravanizraz potvrdi"/>
+                    <br></br>
+                    <p:commandButton id="potvrdi" style="font-size:small;" value="Potvrdi" action="#{mojbrojsingle.konacanOdgovor()}"/>
+                </h:form>
+                    <br></br>
+                    <br></br>
+                    <p:outputLabel style="font-weight: bold; font-size: 25px; text-decoration: underline;" value="#{mojbrojsingle.racunaj(false)}"/>
+                    <br></br>
+                    <p:outputLabel id="neispravanizraz" rendered="#{mojbrojsingle.neispravanizraz}" style="font-weight: bold; font-size: small; color: orangered;" value="NEKOREKTAN IZRAZ"/>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+

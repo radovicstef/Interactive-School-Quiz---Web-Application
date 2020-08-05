@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <f:metadata>
+        <f:viewAction action="#{supervizor.refresh()}"/>
+    </f:metadata>
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <ui:composition template="./template.xhtml">
+            <ui:define name="title">
+                ETF kviskoteka | Supervizor
+            </ui:define>
+            
+            <ui:define name="footer">
+                <h:form style="float: left; font-size: small; position: relative; padding: 10px;">
+                    <h:commandLink action="/supervizorstranica.xhtml?faces-redirect=true" value="Nazad"/>
+                </h:form>
+            </ui:define>
+            
+            <ui:define name="content">
+                <p:outputLabel style="font-weight: bold;" value="Revizija reči"/>
+                <br></br>
+                <br></br>
+                <h:form style="background-color: orange; border: 1px solid whitesmoke; border-radius: 20px;">
+                    <p:dataTable id="revizija" value="#{supervizor.revizije}" var="revizija" emptyMessage="/">
+                        <p:column headerText="Reč">
+                            <h:outputText value="#{revizija.tekst}"/>
+                        </p:column>
+                        <p:column headerText="Tip">
+                            <h:outputText value="#{revizija.tip}"/>
+                        </p:column>
+                        <p:column>
+                            <p:commandButton value="Odobri" action="#{supervizor.odobri(revizija.idrevizijareci)}" ajax="true" update="revizija"/>
+                        </p:column>
+                        <p:column>
+                            <p:commandButton value="Odbaci" action="#{supervizor.odbaci(revizija.idrevizijareci)}" ajax="true" update="revizija"/>
+                        </p:column>
+                    </p:dataTable>
+                    <br></br>
+                    <br></br>
+                    <p:commandButton value="Refresh" action="#{supervizor.refresh()}" update="revizija"/>
+                </h:form>
+                <br></br>
+                <br></br>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+

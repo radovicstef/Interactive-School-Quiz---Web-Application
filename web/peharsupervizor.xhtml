@@ -1,0 +1,112 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <f:metadata>
+        <f:viewAction action="#{supervizor.refresh()}"/>
+    </f:metadata>
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <ui:composition template="./template.xhtml">
+            <ui:define name="title">
+                ETF kviskoteka | Supervizor
+            </ui:define>
+            
+            <ui:define name="footer">
+                <h:form style="float: left; font-size: small; position: relative; padding: 10px;">
+                    <h:commandLink action="/supervizorstranica.xhtml?faces-redirect=true" value="Nazad"/>
+                </h:form>
+            </ui:define>
+            
+            <ui:define name="content">
+                <p:outputLabel style="font-weight: bold;" value="Unesite pitanja i odgovore za igru pehar"/>
+                <br></br>
+                <br></br>
+                <h:form id="forma" style="background-color: orange; border: 1px solid whitesmoke; border-radius: 20px;">
+                    <p:inputText style="float: left; margin-right: 10px;" size="20" placeholder="Prvo pitanje" required="true" requiredMessage="Unesite pitanje!" value="#{supervizor.pitanja[0]}"/>
+                    <p:inputText validatorMessage="Unesite tačno 9 slova!" style="float: left;" size="20" placeholder="Odgovor (9 slova)" required="true" requiredMessage="Unesite odgovor!" value="#{supervizor.odgovori[0]}">
+                        <f:validateLength minimum="9" maximum="9"/>
+                    </p:inputText>
+                    <br></br>
+                    <p:inputText style="float: left; margin-right: 10px;" size="20" placeholder="Drugo pitanje" required="true" requiredMessage="Unesite pitanje!" value="#{supervizor.pitanja[1]}"/>
+                    <p:inputText validatorMessage="Unesite tačno 8 slova!" style="float: left;" size="20" placeholder="Odgovor (8 slova)" required="true" requiredMessage="Unesite odgovor!" value="#{supervizor.odgovori[1]}">
+                        <f:validateLength minimum="8" maximum="8"/>
+                    </p:inputText>
+                    <br></br>
+                    <p:inputText style="float: left; margin-right: 10px;" size="20" placeholder="Trece pitanje" required="true" requiredMessage="Unesite pitanje!" value="#{supervizor.pitanja[2]}"/>
+                    <p:inputText validatorMessage="Unesite tačno 7 slova!" style="float: left;" size="20" placeholder="Odgovor (7 slova)" required="true" requiredMessage="Unesite odgovor!" value="#{supervizor.odgovori[2]}">
+                        <f:validateLength minimum="7" maximum="7"/>
+                    </p:inputText>
+                    <br></br>
+                    <p:inputText style="float: left; margin-right: 10px;" size="20" placeholder="Cetvrto pitanje" required="true" requiredMessage="Unesite pitanje!" value="#{supervizor.pitanja[3]}"/>
+                    <p:inputText validatorMessage="Unesite tačno 6 slova!" style="float: left;" size="20" placeholder="Odgovor (6 slova)" required="true" requiredMessage="Unesite odgovor!" value="#{supervizor.odgovori[3]}">
+                        <f:validateLength minimum="6" maximum="6"/>
+                    </p:inputText>
+                    <br></br>
+                    <p:inputText style="float: left; margin-right: 10px;" size="20" placeholder="Peto pitanje" required="true" requiredMessage="Unesite pitanje!" value="#{supervizor.pitanja[4]}"/>
+                    <p:inputText validatorMessage="Unesite tačno 5 slova!" style="float: left;" size="20" placeholder="Odgovor (5 slova)" required="true" requiredMessage="Unesite odgovor!" value="#{supervizor.odgovori[4]}">
+                        <f:validateLength minimum="5" maximum="5"/>
+                    </p:inputText>
+                    <br></br>
+                    <p:inputText style="float: left; margin-right: 10px;" size="20" placeholder="Šesto pitanje" required="true" requiredMessage="Unesite pitanje!" value="#{supervizor.pitanja[5]}"/>
+                    <p:inputText validatorMessage="Unesite tačno 4 slova!" style="float: left;" size="20" placeholder="Odgovor (4 slova)" required="true" requiredMessage="Unesite odgovor!" value="#{supervizor.odgovori[5]}">
+                        <f:validateLength minimum="4" maximum="4"/>
+                    </p:inputText>
+                    <br></br>
+                    <p:inputText style="float: left; margin-right: 10px;" size="20" placeholder="Sedmo pitanje" required="true" requiredMessage="Unesite pitanje!" value="#{supervizor.pitanja[6]}"/>
+                    <p:inputText validatorMessage="Unesite tačno 3 slova!" style="float: left;" size="20" placeholder="Odgovor (3 slova)" required="true" requiredMessage="Unesite odgovor!" value="#{supervizor.odgovori[6]}">
+                        <f:validateLength minimum="3" maximum="3"/>
+                    </p:inputText>
+                    <br></br>
+                    <p:inputText style="float: left; margin-right: 10px;" size="20" placeholder="Osmo pitanje" required="true" requiredMessage="Unesite pitanje!" value="#{supervizor.pitanja[7]}"/>
+                    <p:inputText validatorMessage="Unesite tačno 3 slova!" style="float: left;" size="20" placeholder="Odgovor (3 slova)" required="true" requiredMessage="Unesite odgovor!" value="#{supervizor.odgovori[7]}">
+                        <f:validateLength minimum="3" maximum="3"/>
+                    </p:inputText>
+                    <br></br>
+                    <p:inputText style="float: left; margin-right: 10px;" size="20" placeholder="Deveto pitanje" required="true" requiredMessage="Unesite pitanje!" value="#{supervizor.pitanja[8]}"/>
+                    <p:inputText validatorMessage="Unesite tačno 4 slova!" style="float: left;" size="20" placeholder="Odgovor (4 slova)" required="true" requiredMessage="Unesite odgovor!" value="#{supervizor.odgovori[8]}">
+                        <f:validateLength minimum="4" maximum="4"/>
+                    </p:inputText>
+                    <br></br>
+                    <p:inputText style="float: left; margin-right: 10px;" size="20" placeholder="Deseto pitanje" required="true" requiredMessage="Unesite pitanje!" value="#{supervizor.pitanja[9]}"/>
+                    <p:inputText validatorMessage="Unesite tačno 5 slova!" style="float: left;" size="20" placeholder="Odgovor (5 slova)" required="true" requiredMessage="Unesite odgovor!" value="#{supervizor.odgovori[9]}">
+                        <f:validateLength minimum="5" maximum="5"/>
+                    </p:inputText>
+                    <br></br>
+                    <p:inputText style="float: left; margin-right: 10px;" size="20" placeholder="Jedanaesto pitanje" required="true" requiredMessage="Unesite pitanje!" value="#{supervizor.pitanja[10]}"/>
+                    <p:inputText validatorMessage="Unesite tačno 6 slova!" style="float: left;" size="20" placeholder="Odgovor (6 slova)" required="true" requiredMessage="Unesite odgovor!" value="#{supervizor.odgovori[10]}">
+                        <f:validateLength minimum="6" maximum="6"/>
+                    </p:inputText>
+                    <br></br>
+                    <p:inputText style="float: left; margin-right: 10px;" size="20" placeholder="Dvanaesto pitanje" required="true" requiredMessage="Unesite pitanje!" value="#{supervizor.pitanja[11]}"/>
+                    <p:inputText validatorMessage="Unesite tačno 7 slova!" style="float: left;" size="20" placeholder="Odgovor (7 slova)" required="true" requiredMessage="Unesite odgovor!" value="#{supervizor.odgovori[11]}">
+                        <f:validateLength minimum="7" maximum="7"/>
+                    </p:inputText>
+                    <br></br>
+                    <p:inputText style="float: left; margin-right: 10px;" size="20" placeholder="Trinaesto pitanje" required="true" requiredMessage="Unesite pitanje!" value="#{supervizor.pitanja[12]}"/>
+                    <p:inputText validatorMessage="Unesite tačno 8 slova!" style="float: left;" size="20" placeholder="Odgovor (8 slova)" required="true" requiredMessage="Unesite odgovor!" value="#{supervizor.odgovori[12]}">
+                        <f:validateLength minimum="8" maximum="8"/>
+                    </p:inputText>
+                    <br></br>
+                    <p:inputText style="float: left; margin-right: 10px;" size="20" placeholder="Četrnaesto pitanje" required="true" requiredMessage="Unesite pitanje!" value="#{supervizor.pitanja[13]}"/>
+                    <p:inputText validatorMessage="Unesite tačno 9 slova!" style="float: left;" size="20" placeholder="Odgovor (9 slova)" required="true" requiredMessage="Unesite odgovor!" value="#{supervizor.odgovori[13]}">
+                        <f:validateLength minimum="9" maximum="9"/>
+                    </p:inputText>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <p:commandButton style="background-color: orange; border: 1px solid white; margin-top: 20px;" value="Unesi" action="#{supervizor.postaviPehar()}" ajax="false" update="forma"/>
+                    <p:messages closable="true"/>
+                </h:form>
+                <br></br>
+                <br></br>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+

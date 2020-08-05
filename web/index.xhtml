@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>ETF kviskoteka</title>
+    </h:head>
+    <h:body>
+        
+        <ui:composition template="./template.xhtml">
+            <ui:define name="title">
+                ETF kviskoteka | Login
+            </ui:define>
+            
+            <ui:define name="content">
+                <p:outputLabel id="loginlabel">Ulogujte se</p:outputLabel>
+                <br></br>
+                <h:form id="loginform">
+                    <h:panelGrid columns="2" cellpadding="5">
+                        <p:inputText  id="username" value="#{login.username}" required="true" placeholder="Username:" requiredMessage="Unesite username!" maxlength="30" size="20"/>
+                        <br></br>
+                        <p:password id="password" value="#{login.password}" required="true" placeholder="Password:" requiredMessage="Unesite password!" maxlength="12" size="20"/>
+                    </h:panelGrid>
+                    <p:commandButton style="margin-top: 15px; margin-bottom: 10px;" value="Login" action="#{login.checkUser()}" update="loginform" ajax="false"/>
+                    <p:messages style="font-size: 10px;"></p:messages>
+                </h:form>
+                <br></br>
+                <h:form>
+                    <p:outputLabel style="font-size: small; font-weight: bold;" value="Nemate nalog?"></p:outputLabel>
+                    <br></br>
+                    <p:button style="margin-bottom: 10px; margin-top: 5px;" value="Registracija" outcome="registracija.xhtml"></p:button>
+                    <br></br>
+                    <br></br>
+                    <h:commandLink value="Nastavi kao neregistrovani korisnik" action="/listagost.xhtml?faces-redirect=true"></h:commandLink>
+                    <br></br>
+                    <br></br>
+                    <h:commandLink style="font-size: 15px;" value="Zaboravili ste lozinku?" action="/zaboravljenalozinka.xhtml?faces-redirect=true"></h:commandLink>
+                    <br></br>
+                    <h:commandLink style="font-size: 15px;" value="Promena lozinke?" action="/promenalozinke.xhtml?faces-redirect=true"></h:commandLink>
+                </h:form>
+            </ui:define>
+        </ui:composition>
+    
+    </h:body>
+</html>
+

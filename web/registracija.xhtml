@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <ui:composition template="./template.xhtml">
+            <ui:define name="title">
+                ETF kviskoteka | Registracija
+            </ui:define>
+            <ui:define name="footer">
+                <h:form style="float: left; font-size: small; position: relative; padding: 10px;">
+                    <h:commandLink action="#{login.logout()}" value="Nazad"/>
+                </h:form>
+            </ui:define>
+            <ui:define name="content">
+                <p:outputLabel id="loginlabel">Registrujte se</p:outputLabel>
+                <br></br>
+                <h:form id="regform" enctype="multipart/form-data">
+                    <p:panelGrid columns="2">
+                        <p:outputLabel for="ime">Ime:</p:outputLabel>
+                        <p:inputText id="ime" value="#{registracija.noviKorisnik.ime}" required="true" requiredMessage="Niste uneli ime!" size="20" maxlength="45"/>
+                        <p:outputLabel for="prezime">Prezime:</p:outputLabel>
+                        <p:inputText id="prezime" value="#{registracija.noviKorisnik.prezime}" required="true" requiredMessage="Niste uneli prezime!" size="20" maxlength="45"/>
+                        <p:outputLabel for="email">E-mail:</p:outputLabel>
+                        <p:inputText id="email" value="#{registracija.noviKorisnik.email}" required="true" requiredMessage="Niste uneli e-mail!" size="20" maxlength="45" validatorMessage="Format nije odgovarajuc!">
+                            <f:validateRegex pattern="([^.@]+)(\.[^.@]+)*@([^.@]+\.)+([^.@]+)"/>
+                        </p:inputText>
+                        <p:outputLabel for="zanimanje">Zanimanje:</p:outputLabel>
+                        <p:inputText id="zanimanje" value="#{registracija.noviKorisnik.zanimanje}" requiredMessage="Niste uneli zanimanje!" required="true" size="20" maxlength="45"/>
+                        <p:outputLabel for="username">Username:</p:outputLabel>
+                        <p:inputText id="username" value="#{registracija.noviKorisnik.username}" required="true" requiredMessage="Niste uneli username!" size="20" maxlength="45"/>
+                        <p:outputLabel for="password">Sifra:</p:outputLabel>
+                        <p:password id="password" value="#{registracija.noviKorisnik.password}" required="true" match="passwordvalidation" size="20" maxlength="50" title="Format sifre" validatorMessage="Format nije odgovarajuc!" requiredMessage="Niste uneli sifru!">
+                            <f:validateLength minimum="8" maximum="12"/>
+                            <!--KARAKTER & MORA DA BUDE &amp KAKO NE BI DOSLO DO GRESKE U PREVODJENJU JER IMA POSEBNO ZNACENJE PRI PARSIRANJU XHTML, A U SAMOM REGULARNOM IZRAZU TREBA DA STOJI SAMO &--> 
+                            <f:validateRegex pattern="^(?!.*(.)\1{2,})([A-Z](?=(.*[a-z]){3,})|[a-z](?=.*[A-Z])(?=(.*[a-z]){2,}))(?=.*[\d])(?=.*[!@#$%^&amp;*_])[A-Za-z\d!@#$%^&amp;*_]*$"/>
+                        </p:password>
+                        <p:outputLabel for="passwordvalidation">Potvrda sifre:</p:outputLabel>
+                        <p:password id="passwordvalidation" required="true" size="20" maxlength="50" requiredMessage="Niste uneli portvrdu sifre!"/>
+                        <p:outputLabel for="pol">Pol:</p:outputLabel>
+                        <p:selectOneRadio id="pol" value="#{registracija.noviKorisnik.pol}" required="true" requiredMessage="Niste uneli pol!">
+                            <f:selectItem itemLabel="Muski" itemValue="M"/>
+                            <f:selectItem itemLabel="Zenski" itemValue="Z"/>
+                        </p:selectOneRadio>
+                        <p:outputLabel for="jmbg">JMBG:</p:outputLabel>
+                        <p:inputText id="jmbg" value="#{registracija.jmbg}" required="true" requiredMessage="Niste uneli jmbg!" size="20" maxlength="13">
+                            <f:validateRegex pattern="\d{13}"/>
+                        </p:inputText>
+                        <p:outputLabel for="upload">Profilna slika:</p:outputLabel>
+                        <p:fileUpload style="font-size: 50%;" id="upload" allowTypes="/(\.|\/)(jpe?g|png|tiff?)$/" sizeLimit="1048576" mode="advanced" label="Izaberite sliku" uploadLabel="Upload" cancelLabel="Cancel" invalidFileMessage="Fajl nije odgovarajuceg formata!"
+                                      fileUploadListener="#{uploadKorisnik.fileUploadListener}" invalidSizeMessage="Velicina fajla je prevelika!" fileLimitMessage="Moguce je odabrati samo jedan fajl!" validatorMessage="Dimenzije slike mogu biti do 300x300px" />
+                        <p:outputLabel for="tajanstvenopitanje">Tajanstveno pitanje</p:outputLabel>
+                        <p:inputText id="tajanstvenopitanje" value="#{registracija.noviKorisnik.tajanstveno_pitanje}" size="20" maxlength="150"/>
+                        <p:outputLabel for="odgovor">Odgovor</p:outputLabel>
+                        <p:inputText id="odgovor" value="#{registracija.noviKorisnik.odgovor}" size="20" maxlength="150"/>
+                    </p:panelGrid>
+                    <p:commandButton style="margin-top:20px; background-color: orange; border: 1px solid white;" value="Registruj se" action="#{registracija.registracija(uploadKorisnik)}" ajax="false" update="regform"/>
+                    <br></br>
+                    <p:messages closable="true"/>
+                </h:form>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+

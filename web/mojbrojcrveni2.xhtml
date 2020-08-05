@@ -1,0 +1,77 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <f:metadata>
+        <f:viewAction action="#{mojbroj.podesiIgruPlavi(login.korisnik.username,2)}"/>
+    </f:metadata>
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <ui:composition template="./korisniktemplate.xhtml">
+            <ui:define name="title">
+                ETF kviskoteka | Moj broj
+            </ui:define>
+            
+            <ui:define name="content">
+                <p:outputLabel style="float: left; font-size: small; font-weight: bold;" value="#{korisnikpartija.igranapart.username1} "></p:outputLabel>
+                <p:outputLabel style="float: left; margin-left:3px; font-size: small; font-weight: bold;" value="VS."></p:outputLabel>
+                <p:outputLabel style="float: left; margin-left:3px; font-size: small; font-weight: bold;" value="#{korisnikpartija.igranapart.username2} "></p:outputLabel>
+                <br></br>
+                <p:outputLabel style="font-weight: bold; float: left;" value="REZULTAT" />
+                <p:outputLabel id="rezultat1" style="color: cornflowerblue; font-weight: bolder; float: left; margin-left: 15px;" value="#{korisnikpartija.uzmipoene1(login.korisnik.username)}"/>
+                <p:outputLabel id="rezultat2" style="color: orangered; font-weight: bolder; float: left; margin-left: 10px;" value="#{korisnikpartija.uzmipoene2(login.korisnik.username)}"/>
+                <br></br>
+                <br></br>
+                <p:outputLabel style="font-weight: bold; color: #{mojbroj.color}" value="MOJ BROJ"/>
+                <br></br>
+                <p:outputLabel value="Preostalo vreme: "/>
+                <h:outputText style="font-weight: bold;" id="timer" value="#{mojbroj.timer}"/>
+                <br></br>
+                <h:form style='border: 5px solid seashell; border-radius: 15px; padding: 30px 50px 30px 50px; background-color: seashell;'>
+                    <p:poll interval="1" listener="#{mojbroj.odbrojavajPlavi(2)}" update="timer odgovor rezultat1 rezultat2"/>
+                    <p:outputLabel id="gb" style="background-color: orange; border-radius: 10px; color:white; font-weight: bolder; padding-top: 15px; padding: 15px;" value="#{mojbroj.gb}"/>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <h:commandLink disabled="#{mojbroj.disabledj1}" id="j1" style="background-color: orange; border-radius: 10px; color:white; padding: 10px; margin-right: 3px;" value="#{mojbroj.j1}" action="#{mojbroj.odgovori(1)}"/>
+                    <h:commandLink disabled="#{mojbroj.disabledj2}" id="j2" style="background-color: orange; border-radius: 10px; color:white; padding: 10px; margin-right: 3px;" value="#{mojbroj.j2}" action="#{mojbroj.odgovori(2)}"/>
+                    <h:commandLink disabled="#{mojbroj.disabledj3}" id="j3" style="background-color: orange; border-radius: 10px; color:white; padding: 10px; margin-right: 3px;" value="#{mojbroj.j3}" action="#{mojbroj.odgovori(3)}"/>
+                    <h:commandLink disabled="#{mojbroj.disabledj4}" id="j4" style="background-color: orange; border-radius: 10px; color:white; padding: 10px; margin-right: 35px;" value="#{mojbroj.j4}" action="#{mojbroj.odgovori(4)}"/>
+                    <h:commandLink disabled="#{mojbroj.disabledd1}" id="d1" style="background-color: orange; border-radius: 10px; color:white; padding: 10px; margin-right: 35px;" value="#{mojbroj.d1}" action="#{mojbroj.odgovori(5)}"/>
+                    <h:commandLink disabled="#{mojbroj.disabledd2}" id="d2" style="background-color: orange; border-radius: 10px; color:white; padding: 10px;" value="#{mojbroj.d2}" action="#{mojbroj.odgovori(6)}"/>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    
+                    <h:commandLink style="background-color: orange; color:white; padding: 10px; margin-right: 3px;" value="+" action="#{mojbroj.odgovori(7)}"/>
+                    <h:commandLink style="background-color: orange; color:white; padding: 10px; margin-right: 3px;" value="-" action="#{mojbroj.odgovori(8)}"/>
+                    <h:commandLink style="background-color: orange; color:white; padding: 10px; margin-right: 3px;" value="*" action="#{mojbroj.odgovori(9)}"/>
+                    <h:commandLink style="background-color: orange; color:white; padding: 10px; margin-right: 3px;" value="/" action="#{mojbroj.odgovori(10)}"/>
+                    <h:commandLink style="background-color: orange; color:white; padding: 10px; margin-right: 3px;" value="(" action="#{mojbroj.odgovori(11)}"/>
+                    <h:commandLink style="background-color: orange; color:white; padding: 10px; margin-right: 3px;" value=")" action="#{mojbroj.odgovori(12)}"/>
+                    <br></br>
+                    <br></br>
+                    <p:commandButton disabled="#{mojbroj.disabledStop}" style="font-size: small;" action="#{mojbroj.stopPlavi()}" value="STOP"/>
+                    <br></br>
+                    <br></br>
+                    <p:inputText id="odgovor" disabled="true" value="#{mojbroj.odgovor}"/>
+                    <p:commandButton value="Nazad" action="#{mojbroj.nazad()}"/>
+                    <p:poll interval="1" listener="#{mojbroj.vrtibrojeve()}" update="j1 j2 j3 j4 d1 d2 gb odgovor neispravanizraz potvrdi"/>
+                    <br></br>
+                    <p:commandButton id="potvrdi" disabled="#{mojbroj.zakljucanodgovor}" style="font-size:small;" value="Potvrdi" action="#{mojbroj.konacanOdgovorPlavi(2)}"/>
+                </h:form>
+                    <br></br>
+                    <br></br>
+                    <p:outputLabel style="font-weight: bold; font-size: 25px; text-decoration: underline;" value="#{mojbroj.racunaj()}"/>
+                    <br></br>
+                    <p:outputLabel id="neispravanizraz" rendered="#{mojbroj.neispravanizraz}" style="font-weight: bold; font-size: small; color: orangered;" value="NEKOREKTAN IZRAZ"/>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+
