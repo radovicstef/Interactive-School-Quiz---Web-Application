@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/projekat?zeroDateTimeBehavior=convertToNull&amp;useSSL=false</property>
+    <property name="hibernate.connection.username">root</property>
+    <property name="hibernate.connection.password">stefko10</property>
+    <mapping class="entityBeans.Korisnik"/>
+    <mapping class="entityBeans.Partija"/>
+    <mapping class="entityBeans.IgranaPartija"/>
+    <mapping class="entityBeans.Anagrami"/>
+    <mapping class="entityBeans.IgraAnagrami"/>
+    <mapping class="entityBeans.IgraMojBroj"/>
+    <mapping class="entityBeans.Vesanja"/>
+    <mapping class="entityBeans.IgraVesanja"/>
+    <mapping class="entityBeans.BazaReci"/>
+    <mapping class="entityBeans.IgraZgeos"/>
+    <mapping class="entityBeans.RevizijaReci"/>
+    <mapping class="entityBeans.BazaPitanja"/>
+    <mapping class="entityBeans.IgraPehar"/>
+    <mapping class="entityBeans.BazaPartija"/>
+    <mapping class="entityBeans.BazaIgraDana"/>
+    <mapping class="entityBeans.IgraDanaPartija"/>
+  </session-factory>
+</hibernate-configuration>
