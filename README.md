@@ -53,5 +53,3 @@ Libraries that are used:
 <p align = "center">
 <img src="https://github.com/stefanlalov/Interactive-School-Quiz---Web-Application/blob/master/screenshots/10.jpg">
 </p>
-<hr>
-</p>
